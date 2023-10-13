@@ -12,6 +12,12 @@ export async function POST(request, response) {
       headers: { "content-type": "text/html" },
     });
 
+  if (!url.startsWith("https://cdn.discordapp.com"))
+    return new NextResponse("URL Inválido", {
+      status: 400,
+      headers: { "content-type": "text/html" },
+    });
+
   const alreadyExists = await prisma.transcripts.findMany({
     where: {
       url,
@@ -25,16 +31,16 @@ export async function POST(request, response) {
 
   const res = await axios.get(url);
 
-  await prisma.transcripts.create({
+  const transcript = await prisma.transcripts.create({
     data: {
       url,
       html: `${res.data}`,
     },
   });
 
-  // REDIRECT TO TRANSCRIPT
-  return new NextResponse("CREATED", {
+  return new NextResponse(transcript.id, {
     status: 200,
     headers: { "content-type": "text/html" },
   });
+  // redirect(`/api/transcript?id=${id}`);
 }
