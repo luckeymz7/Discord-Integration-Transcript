@@ -12,15 +12,21 @@ export default async function Dashboard() {
   const transcripts = await getTranscripts();
 
   return (
-    <>
-      {transcripts.map((transcript) => {
-        return (
-          <div key={transcript.id}>
-            <h1>{transcript.id}</h1>
-            <p>{transcript.url}</p>
-          </div>
-        );
-      })}
-    </>
+    <main className={styles.main}>
+      <div className={styles.transcriptList}>
+        {transcripts.map((transcript) => {
+          return (
+            <div className={styles.transcriptDiv} key={transcript.id}>
+              <a
+                target="_blank"
+                href={`http://localhost:3000?id=${transcript.id}`}
+              >
+                Acessar transcript | {transcript.id}
+              </a>
+            </div>
+          );
+        })}
+      </div>
+    </main>
   );
 }

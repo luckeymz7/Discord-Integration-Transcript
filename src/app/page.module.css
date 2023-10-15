@@ -4,10 +4,15 @@
   height: 100%;
   border: 0;
 }
+.title {
+  color: #fff;
+  font-size: 60px;
+}
 
 .main {
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
   background-color: #010718;
   background-size: cover;

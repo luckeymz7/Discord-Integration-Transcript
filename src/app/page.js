@@ -22,7 +22,7 @@ export default async function Home({ searchParams }) {
 
   return (
     <main className={styles.main}>
-      <header className={styles.header}>
+      {/* <header className={styles.header}>
         <h2 className={styles.logo}>Logo</h2>
         <nav className={styles.navigation}>
           <a className={styles.home} href="#">
@@ -31,7 +31,7 @@ export default async function Home({ searchParams }) {
           <a className={styles.home} href="#">
             Sobre
           </a>
-          <a className={styles.home} href="#">
+          <a className={styles.home} href="http://localhost:3000/dashboard">
             Dashboard
           </a>
           <button className={styles.button}>Entrar com discord</button>
@@ -49,12 +49,16 @@ export default async function Home({ searchParams }) {
             consequat cursus id et mauris.
           </p>
           <div className={styles.morebutton}>
-            <a href="https://discordapp.com/users/337012320284835840">
+            <a
+              target="_blank"
+              href="https://discordapp.com/users/337012320284835840"
+            >
               Saber mais
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
+      <h1 className={styles.title}>Discord Integration Transcript</h1>
     </main>
   );
 }
